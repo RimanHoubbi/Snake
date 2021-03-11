@@ -3,34 +3,35 @@ package logic;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import logic.ThreadsController;
-
 public class KeyboardListener extends KeyAdapter{
  	
  		public void keyPressed(KeyEvent e){
+ 			// &begin[Snake::Move]
  		    switch(e.getKeyCode()){
 		    	case 39:	// -> Right 
-		    				//if it's not the opposite direction
-		    				if(ThreadsController.directionSnake!=2)
-		    					ThreadsController.directionSnake=1;
-		    			  	break;
+					//if it's not the opposite Direction
+					if(ThreadsController.directionSnake!= Direction.LEFT)
+						ThreadsController.directionSnake= Direction.RIGHT;
+					break;
 		    	case 38:	// -> Top
-							if(ThreadsController.directionSnake!=4) 
-								ThreadsController.directionSnake=3;
-		    				break;
+					if(ThreadsController.directionSnake!= Direction.BOTTOM)
+						ThreadsController.directionSnake= Direction.TOP;
+					break;
 		    				
 		    	case 37: 	// -> Left 
-							if(ThreadsController.directionSnake!=1)
-								ThreadsController.directionSnake=2;
-		    				break;
+					if(ThreadsController.directionSnake!= Direction.RIGHT)
+						ThreadsController.directionSnake= Direction.LEFT;
+					break;
 		    				
 		    	case 40:	// -> Bottom
-							if(ThreadsController.directionSnake!=3)
-								ThreadsController.directionSnake=4;
-		    				break;
+					if(ThreadsController.directionSnake!= Direction.TOP)
+						ThreadsController.directionSnake= Direction.BOTTOM;
+					break;
 		    	
-		    	default: 	break;
+				default:
+					break;
  		    }
+			// &end[Snake::Move]
  		}
  	
  }

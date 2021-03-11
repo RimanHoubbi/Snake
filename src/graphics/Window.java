@@ -17,8 +17,19 @@ public class Window extends JFrame{
 	private static int width = 20;
 	private static int height = 20;
 
+	public static void main(String[] args) {
+
+		//Creating the window with all its awesome snaky features
+		Window f1 = new Window();
+
+		//Setting up the window settings
+		f1.setTitle("Snake");
+		f1.setSize(300, 300);
+		f1.setVisible(true);
+		f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
 	public Window(){
-		
 		
 		// Creates the arraylist that'll contain the threads
 		Grid = new ArrayList<>();
@@ -47,12 +58,12 @@ public class Window extends JFrame{
 		// initial position of the snake
 		Tuple position = new Tuple(10,10);
 		// passing this value to the controller
-		ThreadsController c = new ThreadsController(position);
+		ThreadsController c = new ThreadsController(position); // &line[Move]
 		//Let's start the game now..
 		c.start();
 
 		// Links the window to the keyboardlistenner.
-		this.addKeyListener(new KeyboardListener());
+		this.addKeyListener(new KeyboardListener()); // &line[Controls]
 		
 	}
 
@@ -60,23 +71,13 @@ public class Window extends JFrame{
 		return Grid;
 	}
 
-	public static void setGrid(ArrayList<ArrayList<DataOfSquare>> grid) {
-		Grid = grid;
-	}
-
 	public static int getWindowWidth() {
 		return width;
-	}
-
-	public static void setWidth(int width) {
-		Window.width = width;
 	}
 
 	public static int getWindowHeight() {
 		return height;
 	}
 
-	public static void setHeight(int height) {
-		Window.height = height;
-	}
+
 }
