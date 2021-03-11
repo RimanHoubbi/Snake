@@ -1,21 +1,25 @@
+package logic;
+
 import java.util.ArrayList;
 
+import pojo.Tuple;
+import graphics.Window;
 
 //Controls all the game logic .. most important class in this project.
 public class ThreadsController extends Thread {
-	 ArrayList<ArrayList<DataOfSquare>> Squares= new ArrayList<ArrayList<DataOfSquare>>();
-	 Tuple headSnakePos;
-	 int sizeSnake=3;
-	 long speed = 50;
+	 private ArrayList<ArrayList<DataOfSquare>> Squares;
+	 private Tuple headSnakePos;
+	 private int sizeSnake=3;
+	 private long speed = 50;
 	 public static int directionSnake ;
 
-	 ArrayList<Tuple> positions = new ArrayList<Tuple>();
-	 Tuple foodPosition;
+	 private ArrayList<Tuple> positions = new ArrayList<>();
+	 private Tuple foodPosition;
 	 
 	 //Constructor of ControlleurThread 
-	 ThreadsController(Tuple positionDepart){
+	 public ThreadsController(Tuple positionDepart){
 		//Get all the threads
-		Squares=Window.Grid;
+		Squares=Window.getGrid();
 		
 		headSnakePos=new Tuple(positionDepart.x,positionDepart.y);
 		directionSnake = 1;
@@ -24,7 +28,7 @@ public class ThreadsController extends Thread {
 		Tuple headPos = new Tuple(headSnakePos.getX(),headSnakePos.getY());
 		positions.add(headPos);
 		
-		foodPosition= new Tuple(Window.height-1,Window.width-1);
+		foodPosition= new Tuple(Window.getWindowHeight()-1,Window.getWindowWidth()-1);
 		spawnFood(foodPosition);
 
 	 }
@@ -85,13 +89,13 @@ public class ThreadsController extends Thread {
 	 //return a position not occupied by the snake
 	 private Tuple getValAleaNotInSnake(){
 		 Tuple p ;
-		 int ranX= 0 + (int)(Math.random()*19); 
-		 int ranY= 0 + (int)(Math.random()*19); 
+		 int ranX= (int) (Math.random() * 19);
+		 int ranY= (int) (Math.random() * 19);
 		 p=new Tuple(ranX,ranY);
 		 for(int i = 0;i<=positions.size()-1;i++){
 			 if(p.getY()==positions.get(i).getX() && p.getX()==positions.get(i).getY()){
-				 ranX= 0 + (int)(Math.random()*19); 
-				 ranY= 0 + (int)(Math.random()*19); 
+				 ranX= (int) (Math.random() * 19);
+				 ranY= (int) (Math.random() * 19);
 				 p=new Tuple(ranX,ranY);
 				 i=0;
 			 }

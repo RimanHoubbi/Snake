@@ -1,25 +1,32 @@
+package graphics;
+
 import java.awt.GridLayout;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
+import logic.DataOfSquare;
+import logic.KeyboardListener;
+import logic.ThreadsController;
+import pojo.Tuple;
 
-class Window extends JFrame{
+public class Window extends JFrame{
 	private static final long serialVersionUID = -2542001418764869760L;
-	public static ArrayList<ArrayList<DataOfSquare>> Grid;
-	public static int width = 20;
-	public static int height = 20;
+	private static ArrayList<ArrayList<DataOfSquare>> Grid;
+	private static int width = 20;
+	private static int height = 20;
+
 	public Window(){
 		
 		
 		// Creates the arraylist that'll contain the threads
-		Grid = new ArrayList<ArrayList<DataOfSquare>>();
+		Grid = new ArrayList<>();
 		ArrayList<DataOfSquare> data;
 		
 		// Creates Threads and its data and adds it to the arrayList
 		for(int i=0;i<width;i++){
-			data= new ArrayList<DataOfSquare>();
+			data= new ArrayList<>();
 			for(int j=0;j<height;j++){
 				DataOfSquare c = new DataOfSquare(2);
 				data.add(c);
@@ -33,7 +40,7 @@ class Window extends JFrame{
 		// Start & pauses all threads, then adds every square of each thread to the panel
 		for(int i=0;i<width;i++){
 			for(int j=0;j<height;j++){
-				getContentPane().add(Grid.get(i).get(j).square);
+				getContentPane().add(Grid.get(i).get(j).getSquare());
 			}
 		}
 		
@@ -45,13 +52,31 @@ class Window extends JFrame{
 		c.start();
 
 		// Links the window to the keyboardlistenner.
-		this.addKeyListener((KeyListener) new KeyboardListener());
+		this.addKeyListener(new KeyboardListener());
+		
+	}
 
-		//To do : handle multiplayers .. The above works, test it and see what happens
-		
-		//Tuple position2 = new Tuple(13,13);
-		//ControlleurThreads c2 = new ControlleurThreads(position2);
-		//c2.start();
-		
+	public static ArrayList<ArrayList<DataOfSquare>> getGrid() {
+		return Grid;
+	}
+
+	public static void setGrid(ArrayList<ArrayList<DataOfSquare>> grid) {
+		Grid = grid;
+	}
+
+	public static int getWindowWidth() {
+		return width;
+	}
+
+	public static void setWidth(int width) {
+		Window.width = width;
+	}
+
+	public static int getWindowHeight() {
+		return height;
+	}
+
+	public static void setHeight(int height) {
+		Window.height = height;
 	}
 }

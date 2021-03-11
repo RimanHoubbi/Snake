@@ -1,4 +1,6 @@
-public class Tuple { 
+package pojo;
+
+public class Tuple {
 	  public  int x; 
 	  public  int y; 
 	  public int xf;

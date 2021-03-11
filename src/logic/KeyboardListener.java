@@ -1,13 +1,17 @@
+package logic;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
- public class KeyboardListener extends KeyAdapter{
+import logic.ThreadsController;
+
+public class KeyboardListener extends KeyAdapter{
  	
  		public void keyPressed(KeyEvent e){
  		    switch(e.getKeyCode()){
 		    	case 39:	// -> Right 
 		    				//if it's not the opposite direction
-		    				if(ThreadsController.directionSnake!=2) 
+		    				if(ThreadsController.directionSnake!=2)
 		    					ThreadsController.directionSnake=1;
 		    			  	break;
 		    	case 38:	// -> Top
