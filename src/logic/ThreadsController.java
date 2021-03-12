@@ -30,10 +30,10 @@ public class ThreadsController extends Thread {
 		positions.add(headPos);
 		// &end[Position]
 
-	 	// &begin[food]
+	 	// &begin[Food]
 		foodPosition= new Tuple(Window.getWindowHeight()-1,Window.getWindowWidth()-1);
 		spawnFood(foodPosition);//&line[Spawn]
-		// &end[food]
+		// &end[Food]
 	 }
 	 
 	 //Important part :
