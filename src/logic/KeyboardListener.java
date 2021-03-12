@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 public class KeyboardListener extends KeyAdapter{
  	
  		public void keyPressed(KeyEvent e){
- 			// &begin[Snake::Move]
+ 			// &begin[Move]
  		    switch(e.getKeyCode()){
 		    	case 39:	// -> Right 
 					//if it's not the opposite Direction
@@ -31,7 +31,7 @@ public class KeyboardListener extends KeyAdapter{
 				default:
 					break;
  		    }
-			// &end[Snake::Move]
+			// &end[Move]
  		}
  	
  }
