@@ -9,6 +9,6 @@ Snake_Game
     Snake
         Move
             Collision
-        Positions
+        Head
         Tail
     Controls
