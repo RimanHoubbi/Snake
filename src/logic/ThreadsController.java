@@ -14,7 +14,7 @@ public class ThreadsController extends Thread {
     public static Direction directionSnake;
 
     private ArrayList<Tuple> positions = new ArrayList<>();
-    private Tuple foodPosition;
+    private Tuple foodPosition; // &line[Food]
 
     //Constructor of ControlleurThread
     public ThreadsController(Tuple positionDepart) {
