@@ -17,6 +17,5 @@ public class SquarePanel extends JPanel {
         this.repaint();
     }
     // &end[Update, Show]
-
 }
 
