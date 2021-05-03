@@ -97,6 +97,6 @@ You have now mapped the feature *Playing_Area* to the *graphics* directory.
 2. Add a file with the extension `.feature-to-file` to the *pojo* package.
     * Verify that the feature `Tile` is defined in the Feature Model.
     * Map the feature `Tile` to the file `Tuple.java`.
-3. Rename the "Head" feature to "Positions".
+3. Refactor the "Head" feature to the new name "Positions", including all references to it.
 4. Inspect the .feature-model and .feature-to-file files.
 5. After the above tasks are completed, answer the questions [here](https://forms.gle/xWZdGAT9wo6xygov7). 
