@@ -83,20 +83,20 @@ free to do so 👌
 
 ### Warmup task
 
-* Add a file with the extension `.feature-to-folder` to the *graphics* package.
-* Verify that the feature `Playing_Area` is defined in the Feature Model via the Feature View tab (bottom left).
-* Add the feature `Playing_Area` to the file.
+0. Add a file with the extension `.feature-to-folder` to the *graphics* package.
+    * Verify that the feature `Playing_Area` is defined in the Feature Model via the Feature View tab (bottom left).
+    * Add the feature `Playing_Area` to the file.
 
 You have now mapped the feature *Playing_Area* to the *graphics* directory.
 
 ### Tasks:
 
-* Implement and annotate a feature that adds a red poison tile that if eaten shrinks the snake by three tiles. If the
+1. Implement and annotate a feature that adds a red poison tile that if eaten shrinks the snake by three tiles. If the
   snake is less than or equal to three in length, the snake dies. *Hint: The poison would follow similar implementation
-  as the food feature.*
-* Add a file with the extension `.feature-to-file` to the *pojo* package.
-  * Verify that the feature `Tile` is defined in the Feature Model.
-  * Map the feature `Tile` to the file `Tuple.java`.
-* Rename the "Head" feature to "Positions".
-* Inspect the .feature-model and .feature-to-file files.
-* After the above tasks are completed, answer the questions [here](https://forms.gle/xWZdGAT9wo6xygov7). 
+  as the feature `Food`.*
+2. Add a file with the extension `.feature-to-file` to the *pojo* package.
+    * Verify that the feature `Tile` is defined in the Feature Model.
+    * Map the feature `Tile` to the file `Tuple.java`.
+3. Rename the "Head" feature to "Positions".
+4. Inspect the .feature-model and .feature-to-file files.
+5. After the above tasks are completed, answer the questions [here](https://forms.gle/xWZdGAT9wo6xygov7). 
