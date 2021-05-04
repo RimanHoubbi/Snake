@@ -10,7 +10,7 @@ public class ThreadsController extends Thread {
     private ArrayList<ArrayList<DataOfSquare>> Squares;
     private Tuple headSnakePos;
     private int sizeSnake = 3;
-    private final long speed = 50;
+    private final long speed = 75;
     public static Direction directionSnake;
 
     private ArrayList<Tuple> positions = new ArrayList<>();
@@ -43,18 +43,20 @@ public class ThreadsController extends Thread {
             checkCollision();
             moveExternal();
             deleteTail();
-            pauser();
+            pause();
         }
     }
 
     //delay between each move of the snake
-    private void pauser() {
+    // &begin[GameState]
+    private void pause() {
         try {
             sleep(speed);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
+    // &end[GameState]
 
     //Checking if the snake bites itself or is eating
     private void checkCollision() {
@@ -84,7 +86,7 @@ public class ThreadsController extends Thread {
     private void stopTheGame(String s) {
         System.out.println(s + "\n");
         while (true) {
-            pauser();
+            pause();
         }
     }
     // &end[Collision]
@@ -191,4 +193,5 @@ public class ThreadsController extends Thread {
         }
     }
     // &end[Tail]
+
 }

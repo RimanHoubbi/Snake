@@ -4,10 +4,9 @@ During the task, take notes while coding, so you can answer the questionnaire af
 
 ## Disable the plugin.
 * Open Plugins in Settings/Preferences. Uncheck the box marked in red in the image below.
-   
-![](./enable.png)
 * Click "Apply".
 
+![](./enable.png)
 ## Warmup task
 
 0. Add a file with the extension `.feature-to-folder` to the *graphics* package.
@@ -31,10 +30,13 @@ You have now mapped the feature *Playing_Area* to the *graphics* directory.
 ## Second part:
 
 6. Enable the HAnS plugin:
-    1. Open Plugins in Settings/Preferences. Chech the box marked in red in the image below.
-    
+    * Open Plugins in Settings/Preferences. Chech the box marked in red in the image below.
+    * Click "Apply".
 ![](./enable.png)
-    2. Click "Apply".
-7.  Implement and annotate a feature (choose a fitting name) that adds death upon leaving the playing area such that the
-    snake dies when crossing the borders. The feature should be defined as a child feature to `Collision` in the Feature
-    Model. *Hint: Locate the feature `Collision`.*
+
+7.  Implement and annotate a feature that raises the difficulty of the game by increasing its speed by one every time the
+    snake crosses the borders of the playing area. The feature should be defined as a child feature of `GameState` in the
+    Feature Model. The current difficulty should be displayed as the title of the window, create methods to enable this.
+    *Hint 1: The speed of the game is inverted. It is implemented as a sleep call, so the shorter the sleep, the faster the game.*
+    *Hint 2: The difficulty may never be equal to or exceed the speed variable.*
+    *Hint 3: To check if the snake passes the bottom border check if the head is equal to 0.*  

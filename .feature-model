@@ -12,3 +12,4 @@ Snake_Game
         Head
         Tail
     Controls
+    GameState
