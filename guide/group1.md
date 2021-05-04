@@ -26,7 +26,8 @@ You have now mapped the feature *Playing_Area* to the *graphics* directory.
 
 6.  Disable the plugin.
     1. Open Plugins in Settings/Preferences. Uncheck the box marked in red in the image below.
-    ![alt tag](./disable.png)
+    
+    ![](enable.png)
     2. Click "Apply".
 7.  Implement and annotate a feature (choose a fitting name) that adds death upon leaving the playing area such that the
     snake dies when crossing the borders. The feature should be defined as a child feature to `Collision` in the Feature
