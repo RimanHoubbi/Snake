@@ -10,13 +10,13 @@ public class ThreadsController extends Thread {
     private ArrayList<ArrayList<DataOfSquare>> Squares;
     private Tuple headSnakePos;
     private int sizeSnake = 3;
-    private long speed = 50;
+    private final long speed = 50;
     public static Direction directionSnake;
 
     private ArrayList<Tuple> positions = new ArrayList<>();
     private Tuple foodPosition; // &line[Food]
 
-    //Constructor of ControlleurThread
+    //Constructor of ControllerThread
     public ThreadsController(Tuple positionDepart) {
         //Get all the threads
         Squares = Window.getGrid(); //&line[Playing_Area]
@@ -30,18 +30,18 @@ public class ThreadsController extends Thread {
         positions.add(headPos);
         // &end[Position]
 
-        // &begin[food]
+        // &begin[Food]
         foodPosition = new Tuple(Window.getWindowHeight() - 1, Window.getWindowWidth() - 1);
         spawnFood(foodPosition);//&line[Spawn]
-        // &end[food]
+        // &end[Food]
     }
 
     //Important part :
     public void run() {
         while (true) {
-            moveInterne(directionSnake);
+            moveInternal(directionSnake);
             checkCollision();
-            moveExterne();
+            moveExternal();
             deleteTail();
             pauser();
         }
@@ -63,7 +63,7 @@ public class ThreadsController extends Thread {
         for (int i = 0; i <= positions.size() - 2; i++) {
             boolean biteItself = posCritique.getX() == positions.get(i).getX() && posCritique.getY() == positions.get(i).getY();
             if (biteItself) {
-                stopTheGame();
+                stopTheGame("Collision");
             }
         }
         // &end[Collision]
@@ -72,7 +72,7 @@ public class ThreadsController extends Thread {
         if (eatingFood) {
             System.out.println("Yummy!");
             sizeSnake = sizeSnake + 1;
-            foodPosition = getValAleaNotInSnake();
+            foodPosition = getValAreaNotInSnake();
 
             spawnFood(foodPosition); // &line[Spawn]
         }
@@ -81,8 +81,8 @@ public class ThreadsController extends Thread {
 
     //Stops The Game
     // &begin[Collision]
-    private void stopTheGame() {
-        System.out.println("COLISION! \n");
+    private void stopTheGame(String s) {
+        System.out.println(s + "\n");
         while (true) {
             pauser();
         }
@@ -96,8 +96,9 @@ public class ThreadsController extends Thread {
     }
     // &end[Spawn]
 
+    // &begin[Blank]
     //return a position not occupied by the snake
-    private Tuple getValAleaNotInSnake() {
+    private Tuple getValAreaNotInSnake() {
         Tuple p;
         int ranX = (int) (Math.random() * 19);
         int ranY = (int) (Math.random() * 19);
@@ -112,13 +113,14 @@ public class ThreadsController extends Thread {
         }
         return p;
     }
+    // &end[Blank]
 
     /**
      * Moves the head of the snake and refreshes the positions in the arraylist
      * 1:right 2:left 3:top 4:bottom 0:nothing
      **/
     // &begin[Move]
-    private void moveInterne(Direction dir) {
+    private void moveInternal(Direction dir) {
         switch (dir) {
             // &begin[Position]
             case BOTTOM:
@@ -154,11 +156,11 @@ public class ThreadsController extends Thread {
     /**
      * Refresh the squares that needs to be
      **/
-    private void moveExterne() {
+    private void moveExternal() {
         for (Tuple t : positions) {
             int y = t.getX();
             int x = t.getY();
-            Squares.get(x).get(y).lightMeUp(SquareToLightUp.SNAKE); // &begin[Show]
+            Squares.get(x).get(y).lightMeUp(SquareToLightUp.SNAKE); // &line[Show]
 
         }
     }

@@ -32,16 +32,18 @@ Feature_A::CommonFeatureName
 Feature_B::CommonFeatureName
 ```
 
-### Feature-to-folder mapping
+### Feature-to-code mapping
 
-The purpose of this file is to map complete folders and their content to one or more feature references. The mapping of
-feature references to folders allows linking specific features to the folder, including all its sub-folders and files.
-With this, the mapping of complete folder structures to features is possible and may substitute the feature-to-file
-mapping. The mapping file is located on the top level inside the to be annotated folder.
+The feature-to-code mapping serves to link specific blocks and lines of code to one or more features. The parts of the
+source code which are mapped to a certain feature are called annotation scopes. An annotation scope is surrounded by
+annotation markers and contains at least one feature reference.
 
-```folderannotation
-Feature_A
-Feature_B::Feature_C
+```java
+// &begin[Feature_A]
+private void example(){
+        getAnotherExample(); // &line[Feature_B]
+        }
+// &end[Feature_A]
 ```
 
 ### Feature-to-file mapping
@@ -55,24 +57,26 @@ FileNameA, FileNameB
 FeatureA, Feature_B::Feature_C
 ```
 
-### Feature-to-code mapping
+### Feature-to-folder mapping
 
-The feature-to-code mapping serves to link specific blocks and lines of code to one or more features. The parts of the
-source code which are mapped to a certain feature are called annotation scopes. An annotation scope is surrounded by
-annotation markers and contains at least one feature reference. 
+The purpose of this file is to map complete folders and their content to one or more feature references. The mapping of
+feature references to folders allows linking specific features to the folder, including all its sub-folders and files.
+With this, the mapping of complete folder structures to features is possible and may substitute the feature-to-file
+mapping. The mapping file is located on the top level inside the to be annotated folder.
 
-```java
-// &begin[Feature_A]
-private void example(){
-        getAnotherExample(); // &line[Feature_B]
-        }
-// &end[Feature_A]
+```folderannotation
+Feature_A
+Feature_B::Feature_C
 ```
 
 ### Feature View
 
 The Feature View is a representation of the feature model tree structure. It is available as a tool window at the
-bottom left of the display. The Feature View supports adding, removing and renaming of features in the Feature Model.
+bottom left of the display (see below). 
+
+![alt tag](./guide/guide_to_tool_window.png)
+
+The Feature View supports adding, removing and renaming of features in the Feature Model.
 
 ![alt tag](./guide/dark_structure.png)
 
@@ -98,22 +102,3 @@ free to do so 👌
   ![alt tag](./guide/guide.png)
 * Choose the path to the zip file of the plugin.
 
-## Warmup task
-
-0. Add a file with the extension `.feature-to-folder` to the *graphics* package.
-    * Verify that the feature `Playing_Area` is defined in the Feature Model via the Feature View tab (bottom left).
-    * Add the feature `Playing_Area` to the file.
-
-You have now mapped the feature *Playing_Area* to the *graphics* directory.
-
-## Tasks:
-
-1. Implement and annotate a feature that adds a red poison tile that if eaten shrinks the snake by three tiles. If the
-  snake is less than or equal to three in length, the snake dies. *Hint: The poison would follow similar implementation
-  as the feature `Food`.*
-2. Add a file with the extension `.feature-to-file` to the *pojo* package.
-    * Verify that the feature `Tile` is defined in the Feature Model.
-    * Map the feature `Tile` to the file `Tuple.java`.
-3. Refactor the "Head" feature to the new name "Positions", including all references to it.
-4. Inspect the .feature-model file.
-5. After the above tasks are completed, answer the questions [here](https://forms.gle/xWZdGAT9wo6xygov7). 
