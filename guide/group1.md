@@ -28,7 +28,7 @@ Add a file with the extension `.feature-to-file` to the *pojo* package.
 
 ### Task 3
 
-Rename (refactor) the `Head` feature to the new name `Positions`, including all references to it.
+Rename (refactor) the `Head` feature to the new name `Position`, including all references to it.
 
 ### Task 4
 

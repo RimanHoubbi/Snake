@@ -21,14 +21,14 @@ public class ThreadsController extends Thread {
         //Get all the threads
         Squares = Window.getGrid(); //&line[Playing_Area]
 
-        // &begin[Position]
+        // &begin[Head]
         headSnakePos = new Tuple(positionDepart.x, positionDepart.y);
         directionSnake = Direction.RIGHT;
 
         //!!! Pointer !!!!
         Tuple headPos = new Tuple(headSnakePos.getX(), headSnakePos.getY());
         positions.add(headPos);
-        // &end[Position]
+        // &end[Head]
 
         // &begin[Food]
         foodPosition = new Tuple(Window.getWindowHeight() - 1, Window.getWindowWidth() - 1);
@@ -124,7 +124,7 @@ public class ThreadsController extends Thread {
     // &begin[Move]
     private void moveInternal(Direction dir) {
         switch (dir) {
-            // &begin[Position]
+            // &begin[Head]
             case BOTTOM:
                 headSnakePos.ChangeData(headSnakePos.x, (headSnakePos.y + 1) % 20);
                 positions.add(new Tuple(headSnakePos.x, headSnakePos.y));
@@ -152,7 +152,7 @@ public class ThreadsController extends Thread {
                 break;
         }
     }
-    // &end[Position]
+    // &end[Head]
 
 
     /**

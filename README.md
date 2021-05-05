@@ -163,3 +163,6 @@ Feature View can be updated by clicking the button in the bottom right corner.
 
 ![alt tag](./guide/dark_structure.png)
 
+
+* [Group 1](./guide/group1.md)
+* [Group 2](./guide/group2.md)
