@@ -46,6 +46,7 @@ After the above tasks are completed, answer the questions [here](https://forms.g
 Enable the HAnS plugin:
     * Open Plugins in Settings/Preferences. Check the box marked in red in the image below.
     * Click "Apply".
+    
 ![](./enable.png)
 
 ### Task 6
