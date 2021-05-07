@@ -162,7 +162,7 @@ public class ThreadsController extends Thread {
         for (Tuple t : positions) {
             int y = t.getX();
             int x = t.getY();
-            Squares.get(x).get(y).lightMeUp(SquareToLightUp.SNAKE); // &line[Show]
+            Squares.get(x).get(y).lightMeUp(SquareToLightUp.SNAKE);
 
         }
     }
