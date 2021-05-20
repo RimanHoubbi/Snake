@@ -7,13 +7,13 @@ import graphics.Window;
 
 //Controls all the game logic .. most important class in this project.
 public class ThreadsController extends Thread {
-    private ArrayList<ArrayList<DataOfSquare>> Squares;
-    private Tuple headSnakePos;
+    private final ArrayList<ArrayList<DataOfSquare>> Squares;
+    private final Tuple headSnakePos;
     private int sizeSnake = 3;
-    private final long speed = 75;
+    private final long delay = 75;
     public static Direction directionSnake;
 
-    private ArrayList<Tuple> positions = new ArrayList<>();
+    private final ArrayList<Tuple> positions = new ArrayList<>();
     private Tuple foodPosition; // &line[Food]
 
     //Constructor of ControllerThread
@@ -21,14 +21,14 @@ public class ThreadsController extends Thread {
         //Get all the threads
         Squares = Window.getGrid(); //&line[Playing_Area]
 
-        // &begin[Head]
+        // &begin[Position]
         headSnakePos = new Tuple(positionDepart.x, positionDepart.y);
         directionSnake = Direction.RIGHT;
 
         //!!! Pointer !!!!
         Tuple headPos = new Tuple(headSnakePos.getX(), headSnakePos.getY());
         positions.add(headPos);
-        // &end[Head]
+        // &end[Position]
 
         // &begin[Food]
         foodPosition = new Tuple(Window.getWindowHeight() - 1, Window.getWindowWidth() - 1);
@@ -51,7 +51,7 @@ public class ThreadsController extends Thread {
     // &begin[GameState]
     private void pause() {
         try {
-            sleep(speed);
+            sleep(delay);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -74,7 +74,7 @@ public class ThreadsController extends Thread {
         if (eatingFood) {
             System.out.println("Yummy!");
             sizeSnake = sizeSnake + 1;
-            foodPosition = getValAreaNotInSnake();
+            foodPosition = getTileNotInSnake();
 
             spawnFood(foodPosition); // &line[Spawn]
         }
@@ -100,7 +100,7 @@ public class ThreadsController extends Thread {
 
     // &begin[Blank]
     //return a position not occupied by the snake
-    private Tuple getValAreaNotInSnake() {
+    private Tuple getTileNotInSnake() {
         Tuple p;
         int ranX = (int) (Math.random() * 19);
         int ranY = (int) (Math.random() * 19);
@@ -121,15 +121,14 @@ public class ThreadsController extends Thread {
      * Moves the head of the snake and refreshes the positions in the arraylist
      * 1:right 2:left 3:top 4:bottom 0:nothing
      **/
-    // &begin[Move]
+    // &begin[Move, Position]
     private void moveInternal(Direction dir) {
         switch (dir) {
-            // &begin[Head]
-            case BOTTOM:
+            case DOWN:
                 headSnakePos.ChangeData(headSnakePos.x, (headSnakePos.y + 1) % 20);
                 positions.add(new Tuple(headSnakePos.x, headSnakePos.y));
                 break;
-            case TOP:
+            case UP:
                 if (headSnakePos.y - 1 < 0) {
                     headSnakePos.ChangeData(headSnakePos.x, 19);
                 } else {
@@ -152,7 +151,7 @@ public class ThreadsController extends Thread {
                 break;
         }
     }
-    // &end[Head]
+    // &end[Position]
 
 
     /**

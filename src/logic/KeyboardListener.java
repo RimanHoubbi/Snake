@@ -8,13 +8,12 @@ public class KeyboardListener extends KeyAdapter {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case 39:    // -> Right
-                //if it's not the opposite Direction
                 if (ThreadsController.directionSnake != Direction.LEFT)
                     ThreadsController.directionSnake = Direction.RIGHT;
                 break;
-            case 38:    // -> Top
-                if (ThreadsController.directionSnake != Direction.BOTTOM)
-                    ThreadsController.directionSnake = Direction.TOP;
+            case 38:    // -> Up
+                if (ThreadsController.directionSnake != Direction.DOWN)
+                    ThreadsController.directionSnake = Direction.UP;
                 break;
 
             case 37:    // -> Left
@@ -22,9 +21,9 @@ public class KeyboardListener extends KeyAdapter {
                     ThreadsController.directionSnake = Direction.LEFT;
                 break;
 
-            case 40:    // -> Bottom
-                if (ThreadsController.directionSnake != Direction.TOP)
-                    ThreadsController.directionSnake = Direction.BOTTOM;
+            case 40:    // -> Down
+                if (ThreadsController.directionSnake != Direction.UP)
+                    ThreadsController.directionSnake = Direction.DOWN;
                 break;
 
             default:

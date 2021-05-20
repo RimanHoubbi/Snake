@@ -1,6 +1,7 @@
 package pojo;
 
 public class Tuple {
+
     public int x;
     public int y;
 
@@ -21,6 +22,5 @@ public class Tuple {
     public int getY() {
         return y;
     }
-
 
 } 

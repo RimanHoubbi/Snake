@@ -127,12 +127,10 @@ where it lies.
 The feature-to-file mapping is a specialized file with the extension `.feature-to-file` and is used to map one or more 
 file(s) and its/their content to one or more feature. All content of the linked file is considered fully to be part of 
 the given feature references. The mapping file must be stored in the same folder as the source code files and covers 
-only the file in this folder. In the example below each feature is mapped to the file listed above.
+only the file in this folder. In the example below each feature is mapped to the file listed above. Additional
+mappings can be added beneath existing mappings in the file.
 
 ```fileannotation
-KeyboardListener.java
-Controls
-
 Direction.java
 Controls, Move
 ```
@@ -162,7 +160,6 @@ corresponding changes to the Feature Model file automatically. If the Feature Mo
 Feature View can be updated by clicking the button in the bottom right corner.
 
 ![alt tag](./guide/dark_structure.png)
-
 
 * [Group 1](./guide/group1.md)
 * [Group 2](./guide/group2.md)

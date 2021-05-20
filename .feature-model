@@ -9,7 +9,8 @@ Snake_Game
     Snake
         Move
             Collision
-        Head
+        Position
         Tail
     Controls
     GameState
+    DataTypes
