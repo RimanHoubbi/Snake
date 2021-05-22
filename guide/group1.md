@@ -30,10 +30,6 @@ Add a file with the extension `.feature-to-file` to the *pojo* package.
 
 Rename (refactor) the `Position` feature to the new name `Head`, including all references to it.
 
-#### Answer questions
-
-After the above tasks are completed, answer the questions [here](https://forms.gle/8y21gd9cqySGfk2z5).
-
 ## Second part:
 
 #### Disable the plugin.
@@ -72,6 +68,5 @@ method for updating the title.
 
 Rename (refactor) the `Blank` feature to the new name `Background`, including all references to it.
 
-#### Answer questions
-
-After the above tasks are completed, answer the remaining questions in the form.
+# Answer questions
+After the above tasks are completed, fill out the [survey](https://forms.gle/GDeFSyA9ZKico9KF6).
