@@ -82,23 +82,7 @@ feature names, and their hierarchy in textual form. These are all the features p
 be referenced by mapping them to code by using the annotations described below. The feature model below is contains 
 all features present in the Snake game.
 
-```featuremodel
-Snake_Game
-    Playing_Area
-        Tile
-            Food
-                Spawn
-            Blank
-            Snake
-        Update
-    Snake
-        Move
-            Collision
-        Head
-        Tail
-    Controls
-    GameState
-```
+![alt tag](./guide/feature_model.png)
 
 ### Feature Reference Names
 
@@ -107,10 +91,7 @@ features uniquely the individual feature is pre-extended with its ancestor until
 unique (separated by "::"). This technique is called Least-Partially-Qualified name, short LPQ. The feature `Snake` 
 is mentioned twice above and must therefore be referenced uniquely in the manner below.
 
-```folderannotation
-Tile::Snake
-Snake_Game::Snake
-```
+![alt tag](./guide/lpq.png)
 
 ### Feature-to-code mapping
 
@@ -130,10 +111,7 @@ the given feature references. The mapping file must be stored in the same folder
 only the file in this folder. In the example below each feature is mapped to the file listed above. Additional
 mappings can be added beneath existing mappings in the file.
 
-```fileannotation
-Direction.java
-Controls, Move
-```
+![alt tag](./guide/file_annotation.png)
 
 ### Feature-to-folder mapping
 
@@ -144,9 +122,7 @@ mapping. The mapping file is located on the top level inside the to be annotated
 a feature relates to all code in a folder, then it could be mapped by writing the feature name in a file with the 
 extension `.feature-to-folder` as below. Features must be separated by either spaces or new lines
 
-```folderannotation
-Example
-```
+![alt tag](./guide/folder_annotation.png)
 
 ### Feature View
 
