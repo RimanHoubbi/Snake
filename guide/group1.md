@@ -7,7 +7,7 @@ During the task, take notes while coding, so you can answer the questionnaire af
 ### Warmup task
 
 Add a file with the extension `.feature-to-folder` to the *graphics* package.
-* Verify that the feature `Playing_Area` is defined in the Feature Model via the Feature View tab (bottom left).
+* Verify that the feature `Playing_Area` is defined in the Feature Model via the Feature Model View tab (bottom left).
 * Map the feature `Playing_Area` to the new `.feature-to-folder` file by writing it into the file.
 
 You have now mapped the feature *Playing_Area* to the *graphics* directory.

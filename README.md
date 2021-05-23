@@ -96,7 +96,7 @@ where it lies.
 ### Feature-to-file mapping
 
 The feature-to-file mapping is a specialized file with the extension `.feature-to-file` and is used to map one or more 
-file(s) and its/their content to one or more feature. All content of the linked file is considered fully to be part of 
+file(s) and its/their content to one or more features. All content of the linked file is considered fully to be part of 
 the given feature references. The mapping file must be stored in the same folder as the source code files and covers 
 only the file in this folder. In the example below each feature is mapped to the file listed above. Additional
 mappings can be added beneath existing mappings in the file.
@@ -115,7 +115,7 @@ extension `.feature-to-folder` as below. Features must be separated by either sp
 ![alt tag](./guide/folder_annotation.png)
 
 ## HAnS: Helping Annotate Software
-The purpose of HAnS is to enable recording and editing support.
+The purpose of HAnS is to enable recording and editing support for feature annotations.
 
 #### HAnS-text supports:
 * Embedded Feature Annotations
