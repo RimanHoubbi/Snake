@@ -1,20 +1,7 @@
 # Purpose:
 
 The purpose of this repo is to test and evaluate the embedded feature annotations plugin
-[HAnS](https://bitbucket.org/easelab/hans-text/src) for IntelliJ. 
-
-HAnS-text supports:
-* Feature Annotation Languages
-    * Feature Model
-    * Feature to folder
-    * Feature to file 
-    * Code annotations
-* Syntax Highlighting
-* Code Completion
-* Referencing
-* Refactoring
-* Feature Model View
-* Live Templates
+[HAnS](https://bitbucket.org/easelab/hans-text/src) for IntelliJ.
 
 ### Requirements:
 
@@ -82,8 +69,8 @@ can help developers with feature location. The system of annotations that the HA
 to any file type and programming language (except languages that do not have support for comments). The central part of
 this annotation system is a file with the extension `.feature-model`. This is a feature hierarchy model, describing 
 feature names, and their hierarchy in textual form. These are all the features present in the system, and they may then 
-be referenced by mapping them to code by using the annotations described below. The feature model below is contains 
-all features present in the Snake game.
+be referenced by mapping them to code by using the annotations described below. The feature model is where you define a 
+feature. The feature model below is contains all features present in the Snake game.
 
 ![alt tag](./guide/feature_model.png)
 
@@ -127,9 +114,20 @@ extension `.feature-to-folder` as below. Features must be separated by either sp
 
 ![alt tag](./guide/folder_annotation.png)
 
-### Feature Model View
+## HAnS: Helping Annotate Software
+The purpose of HAnS is to enable recording and editing support.
 
-The Feature Model View is a representation of the feature model. It is available as a tool window at the
+#### HAnS-text supports:
+* Embedded Feature Annotations
+* Syntax Highlighting
+* Code Completion
+* Referencing
+* Refactoring
+* Feature Model View
+* Live Templates
+
+### Feature Model View
+The Feature Model View, from HAnS, is a representation of the feature model. It is available as a tool window at the
 bottom left of the display (see below). 
 
 ![alt tag](./guide/guide_to_tool_window.png)
@@ -141,5 +139,22 @@ updated automatically.
 
 ![alt tag](./guide/dark_structure.png)
 
+### Live Templates
+Live templates are used to insert common constructs into your code. HAnS supports a couple of live templates:
+* `&begin` 
+  *This template creates a begin tag with a matching end tag.*
+* `&line`
+  *This template creates a line tag.*
+* `&end`
+  *This template creates an end tag*
+  
+To invoke a live template simply start typing the name of it and press `enter` or `tab` on your keyboard to complete the invocation.
+#### Surround with Live Templates (Feature Annotation)
+Live templates can also be used to surround marked code. To use this mark the code you want to surround press `ctrl-alt-J` (`cmd-option-J`)
+and choose the template you want to surround the code with. It can also be found via the right-click menu in the editor.
+
+![surround_with_live_template.png](./guide/Surround_with_live_template.png)
+
+## Study Group
 * [Group 1](./guide/group1.md)
 * [Group 2](./guide/group2.md)
