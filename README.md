@@ -11,7 +11,10 @@ HAnS-text supports:
     * Code annotations
 * Syntax Highlighting
 * Code Completion
-* Feature View
+* Referencing
+* Refactoring
+* Feature Model View
+* Live Templates
 
 ### Requirements:
 
@@ -124,16 +127,17 @@ extension `.feature-to-folder` as below. Features must be separated by either sp
 
 ![alt tag](./guide/folder_annotation.png)
 
-### Feature View
+### Feature Model View
 
-The Feature View is a representation of the feature model. It is available as a tool window at the
+The Feature Model View is a representation of the feature model. It is available as a tool window at the
 bottom left of the display (see below). 
 
 ![alt tag](./guide/guide_to_tool_window.png)
 
-The Feature View supports adding, removing and renaming of features in the Feature Model. These actions make the 
-corresponding changes to the Feature Model file automatically. If the Feature Model file is changed manually the 
-Feature View can be updated by clicking the button in the bottom right corner.
+The Feature Model View supports adding, removing and renaming of features (via refactoring) as well as finding the 
+usages of features and opening the Feature Model file by jumping to source. These actions make the corresponding changes
+to the Feature Model file automatically. If the Feature Model file is changed manually, the Feature Model View is 
+updated automatically.
 
 ![alt tag](./guide/dark_structure.png)
 
