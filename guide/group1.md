@@ -41,7 +41,7 @@ Rename (refactor) the `Position` feature to the new name `Head`, including all r
 ### Warmup task
 
 Add a file with the extension `.feature-to-folder` to the *pojo* package.
-* Verify that the feature `DataTypes` is defined in the Feature Model via the Feature View tab (bottom left).
+* Verify that the feature `DataTypes` is defined in the Feature Model via the `.feature-model` file.
 * Map the feature `DataTypes` to the new `.feature-to-folder` file by writing it into the file.
 
 You have now mapped the feature *DataTypes* to the *pojo* directory.
