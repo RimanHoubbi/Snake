@@ -89,12 +89,12 @@ public class ThreadsController extends Thread {
 
         // &begin[Poison]
         boolean eatingPoison = posCritique.getX() == poisonPosition.y && posCritique.getY() == poisonPosition.x;
-        if (eatingFood) {
-            System.out.println("Yummy!");
-            sizeSnake = sizeSnake + 1;
+        if (eatingPoison) {
+            System.out.println("Ouch");
+            sizeSnake = sizeSnake - 1;
             poisonPosition = getTileNotInSnake();
 
-            spawnFood(poisonPosition);  // &line[Spawn]
+            spawnPoison(poisonPosition);  // &line[Spawn]
         }
         // &end[Poison]
     }
