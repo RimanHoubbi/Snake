@@ -4,6 +4,8 @@ Snake_Game
             Food
                 Spawn
                 Poison
+                TestFeature1
+                TestFeature2
             Blank
             Snake
         Update
