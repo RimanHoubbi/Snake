@@ -3,6 +3,7 @@ Snake_Game
         Tile
             Food
                 Spawn
+                Poison
             Blank
             Snake
         Update

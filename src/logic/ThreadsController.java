@@ -15,6 +15,7 @@ public class ThreadsController extends Thread {
 
     private final ArrayList<Tuple> positions = new ArrayList<>();
     private Tuple foodPosition; // &line[Food]
+    private Tuple poisonPosition;  // &line[Poison]
 
     //Constructor of ControllerThread
     public ThreadsController(Tuple positionDepart) {
@@ -34,6 +35,11 @@ public class ThreadsController extends Thread {
         foodPosition = new Tuple(Window.getWindowHeight() - 1, Window.getWindowWidth() - 1);
         spawnFood(foodPosition);//&line[Spawn]
         // &end[Food]
+
+        // &begin[Poison]
+        foodPosition = new Tuple(Window.getWindowHeight() - 3, Window.getWindowWidth() - 3);
+        spawnFood(poisonPosition);  // &line[Poison]
+        // &end[Poison]
     }
 
     //Important part :
@@ -79,6 +85,18 @@ public class ThreadsController extends Thread {
             spawnFood(foodPosition); // &line[Spawn]
         }
         // &end[Food]
+
+
+        // &begin[Poison]
+        boolean eatingPoison = posCritique.getX() == poisonPosition.y && posCritique.getY() == poisonPosition.x;
+        if (eatingFood) {
+            System.out.println("Yummy!");
+            sizeSnake = sizeSnake + 1;
+            poisonPosition = getTileNotInSnake();
+
+            spawnFood(poisonPosition);  // &line[Spawn]
+        }
+        // &end[Poison]
     }
 
     //Stops The Game
@@ -91,10 +109,17 @@ public class ThreadsController extends Thread {
     }
     // &end[Collision]
 
+
     //Put food in a position and displays it
     // &begin[Spawn]
     private void spawnFood(Tuple foodPositionIn) {
         Squares.get(foodPositionIn.x).get(foodPositionIn.y).lightMeUp(SquareToLightUp.FOOD);
+    }
+    // &end[Spawn]
+
+    // &begin[Spawn]
+    private void spawnPoison(Tuple poisonPositionIn) {
+        Squares.get(poisonPositionIn.x).get(poisonPositionIn.y).lightMeUp(SquareToLightUp.FOOD);
     }
     // &end[Spawn]
 
