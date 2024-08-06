@@ -2,7 +2,6 @@ Snake_Game
     Playing_Area
         Tile
             Food
-                TestFeature1
                 Spawn
                 Poison
             Blank
