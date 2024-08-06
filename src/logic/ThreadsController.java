@@ -17,6 +17,8 @@ public class ThreadsController extends Thread {
     private Tuple foodPosition; // &line[Food]
     private Tuple poisonPosition;  // &line[Poison]
     
+    private Tuple poisonPosition2;  // &line[Poison] 
+    
 
     //Constructor of ControllerThread
     public ThreadsController(Tuple positionDepart) {

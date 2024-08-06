@@ -16,6 +16,7 @@ public class DataOfSquare {
         C.add(Color.darkGray);// &line[Tile::Snake]
         C.add(Color.BLUE);    // &line[Food]
         C.add(Color.RED);     // &line[Poison]
+        C.add(Color.YELLOW);   // &line[Poison] 
         C.add(Color.white);   // &line[Playing_Area]
         square = new SquarePanel(C.get(color));
     }
