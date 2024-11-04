@@ -9,16 +9,13 @@ import graphics.Window;
 public class ThreadsController extends Thread {
     private final ArrayList<ArrayList<DataOfSquare>> Squares;
     private final Tuple headSnakePos;
-    private int sizeSnake = 3;
+    private int sizeSnake = 4;
     private final long delay = 75;
     public static Direction directionSnake;
-
     private final ArrayList<Tuple> positions = new ArrayList<>();
     private Tuple foodPosition; // &line[Food]
     private Tuple poisonPosition;  // &line[Poison]
-    
-    private Tuple poisonPosition2;  // &line[Poison] 
-    
+    private Tuple mildPoisonPosition;  // &line[MildPoison]
 
     //Constructor of ControllerThread
     public ThreadsController(Tuple positionDepart) {
@@ -40,9 +37,14 @@ public class ThreadsController extends Thread {
         // &end[Food]
 
         // &begin[Poison]
-        foodPosition = new Tuple(Window.getWindowHeight() - 3, Window.getWindowWidth() - 3);
-        spawnFood(poisonPosition);  // &line[Poison]
+        poisonPosition = new Tuple(Window.getWindowHeight() - 3, Window.getWindowWidth() - 3);
+        spawnFood(poisonPosition);  // &line[Spawn]
         // &end[Poison]
+
+        // &begin[MildPoison]
+        poisonPosition = new Tuple(Window.getWindowHeight() - 5, Window.getWindowWidth() - 5);
+        spawnFood(poisonPosition);  // &line[Spawn]
+        // &end[MildPoison]
     }
 
     //Important part :
@@ -78,6 +80,7 @@ public class ThreadsController extends Thread {
             }
         }
         // &end[Collision]
+
         // &begin[Food]
         boolean eatingFood = posCritique.getX() == foodPosition.y && posCritique.getY() == foodPosition.x;
         if (eatingFood) {
@@ -94,12 +97,22 @@ public class ThreadsController extends Thread {
         boolean eatingPoison = posCritique.getX() == poisonPosition.y && posCritique.getY() == poisonPosition.x;
         if (eatingPoison) {
             System.out.println("Ouch");
-            sizeSnake = sizeSnake - 1;
+            sizeSnake = sizeSnake - 3;
             poisonPosition = getTileNotInSnake();
 
             spawnPoison(poisonPosition);  // &line[Spawn]
         }
         // &end[Poison]
+
+        // &begin[MildPoison]
+        boolean eatingMildPoison = posCritique.getX() == mildPoisonPosition.y && posCritique.getY() == mildPoisonPosition.x;
+        if (eatingMildPoison) {
+            System.out.println("Mild Poison eaten");
+            sizeSnake = sizeSnake - 1;
+            mildPoisonPosition = getTileNotInSnake();
+            spawnMildPoison(mildPoisonPosition);  // &line[Spawn]
+        }
+        // &end[MildPoison]
     }
 
     //Stops The Game
@@ -118,13 +131,14 @@ public class ThreadsController extends Thread {
     private void spawnFood(Tuple foodPositionIn) {
         Squares.get(foodPositionIn.x).get(foodPositionIn.y).lightMeUp(SquareToLightUp.FOOD);
     }
-    // &end[Spawn]
-
-    // &begin[Spawn]
     private void spawnPoison(Tuple poisonPositionIn) {
-        Squares.get(poisonPositionIn.x).get(poisonPositionIn.y).lightMeUp(SquareToLightUp.FOOD);
+        Squares.get(poisonPositionIn.x).get(poisonPositionIn.y).lightMeUp(SquareToLightUp.POISON);
+    }
+    private void spawnMildPoison(Tuple mildPoisonPositionIn) {
+        Squares.get(mildPoisonPositionIn.x).get(mildPoisonPositionIn.y).lightMeUp(SquareToLightUp.MILD_POISON);
     }
     // &end[Spawn]
+
 
     // &begin[Blank]
     //return a position not occupied by the snake

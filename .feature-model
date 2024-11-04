@@ -4,6 +4,7 @@ Snake_Game
             Food
                 Spawn
                 Poison
+                MildPoison
             Blank
             Snake
         Update
