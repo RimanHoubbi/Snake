@@ -45,6 +45,12 @@ public class ThreadsController extends Thread {
         poisonPosition = new Tuple(Window.getWindowHeight() - 5, Window.getWindowWidth() - 5);
         spawnFood(poisonPosition);  // &line[Spawn]
         // &end[MildPoison]
+
+        // &begin[MildPoison]
+        // test functionality
+        //code
+        // &end[MildPoison]
+
     }
 
     //Important part :
